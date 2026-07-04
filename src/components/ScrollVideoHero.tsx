@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 // The actual video is stored in: public/videos/monockle-hero.mp4
-const VIDEO_URL = "/videos/monockle-hero.mp4";
+const VIDEO_URL = `${import.meta.env.BASE_URL}videos/monockle-hero.mp4`;;
 
 const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;
