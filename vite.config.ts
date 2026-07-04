@@ -5,7 +5,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import path from "node:path";
 
 export default defineConfig({
-  base: "/future-sight-gateway/",
+  base: "/remix-time-rewoven-main/",
 
   plugins: [
     react(),
