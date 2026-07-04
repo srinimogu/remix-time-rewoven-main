@@ -1,12 +1,14 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import heroVideo from "@/assets/monockle-hero.mp4.asset.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const VIDEO_URL = heroVideo.url;
-const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
+// The actual video is stored in: public/videos/monockle-hero.mp4
+const VIDEO_URL = "/videos/monockle-hero.mp4";
+
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 /* ---------- Live counters ---------- */
 const START = new Date("2024-01-01T00:00:00Z").getTime();
