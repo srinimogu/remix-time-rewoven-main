@@ -5,17 +5,25 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import path from "node:path";
 
 export default defineConfig({
-  base: "./",
-  plugins: [react(), tailwindcss(), tsconfigPaths()],
+  base: "/future-sight-gateway/",
+
+  plugins: [
+    react(),
+    tailwindcss(),
+    tsconfigPaths(),
+  ],
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
+
   build: {
     outDir: "dist",
     sourcemap: false,
   },
+
   server: {
     host: "::",
     port: 8080,
