@@ -1,0 +1,87 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-gold: var(--gold);
+  --color-green: var(--green);
+  --color-link: var(--link);
+  --font-sans: "Inter", "Neue Haas Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", "Canela", ui-serif, Georgia, serif;
+}
+
+:root {
+  /* Matte black + warm off-white with green + champagne gold */
+  --background: #0F0F10;
+  --foreground: #F5F2ED;
+  --surface: #17171A;
+  --muted: #1E1E22;
+  --muted-foreground: #9A968E;
+  --border: rgba(245, 242, 237, 0.08);
+  --primary: #F5F2ED;
+  --primary-foreground: #0F0F10;
+  --accent: #B39A67;    /* champagne gold */
+  --accent-foreground: #0F0F10;
+  --gold: #B39A67;
+  --green: #244C3A;     /* deep forest green */
+  --link: #5568FF;      /* soft blue - hover/links only */
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+  }
+  ::selection { background: var(--gold); color: var(--primary-foreground); }
+}
+
+@utility serif { font-family: var(--font-serif); font-feature-settings: "liga","dlig"; }
+@utility eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  font-weight: 500;
+}
+@utility hairline { border-top: 1px solid var(--border); }
+@utility link-blue {
+  color: var(--link);
+  transition: opacity .2s ease;
+  &:hover { opacity: .8; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@utility marquee { animation: marquee 40s linear infinite; }
+
+@keyframes tick-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+@utility spin-reverse { animation: tick-reverse 60s linear infinite; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@utility fade-up { animation: fade-up .8s ease-out both; }
